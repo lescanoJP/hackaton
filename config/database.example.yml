@@ -1,0 +1,16 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  username: <%= ENV["MYSQL_ROOT_NAME"] || root %>
+  password: <%= ENV["MYSQL_ROOT_PASSWORD"] || root %>
+  port: <%= ENV["MYSQL_DB_PORT"] || 3306 %>
+  host: <%= ENV["MYSQL_DB_HOST"] || '127.0.0.1' %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: <%= ENV["MYSQL_DATABASE"] || 'e_o_progrides_development' %>
+
+test:
+  <<: *default
+  database: <%= ENV["MYSQL_DATABASE"] || 'e_o_progrides_test' %>

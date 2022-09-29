@@ -1,0 +1,48 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+  application:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+      - '/myapp/node_modules'
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MYSQL_ROOT_NAME=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DB_PORT=3306
+      - MYSQL_DB_HOST=db
+    depends_on:
+      - db
+      - redis
+    links:
+      - db
+      - redis
+  redis:
+    image: 'redis:5-alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/myapp
+      - '/myapp/tmp'
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - db
+      - redis
+    links:
+      - db
+      - redis

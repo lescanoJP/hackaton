@@ -1,0 +1,32 @@
+<div class="edit-password">
+
+  <div class="container">
+    <%= tag.h1 t('views.passwords.edit.update_password')%>
+    <%= tag.p t('views.passwords.edit.choose_your_new_password')%>
+
+    <%= form_with url: user_password_url, method: :put, remote: false, local: true do |f| %>
+
+      <div class="form-container">
+        <%= f.hidden_field :reset_password_token, value: params[:reset_password_token] %>
+
+        <div class="field">
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", id: "password", class: "input", required: true %>
+          <%= f.label :password, t('views.passwords.edit.new_password'), class: 'password' %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "passwordConfirmation", class: "input", required: true %>
+          <%= f.label :password_confirmation, t('views.passwords.edit.confirm_new_password'), class: "password" %>
+          <div class="invalid-password-alert-container">
+            <%= f.label "invalidPasswordMessage", t('views.passwords.edit.password_unmatch'), id: "invalidPasswordMessage", class: "invalid-password-message", style: "display: none" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.submit t('views.passwords.edit.submit'), class: "submit-button" %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>

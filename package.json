@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "4.3.0",
+    "jquery": "^3.5.1",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}

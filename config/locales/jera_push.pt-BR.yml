@@ -1,0 +1,68 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        jera_push/device:
+          attributes:
+            token:
+              blank: não pode ficar em branco
+            platform:
+              blank: não pode ficar em branco
+  jera_push:
+    active_record:
+      model:
+        message:
+          one: Mensagem
+          other: Mensagens
+        device:
+          one: Aparelho
+          other: Aparelhos
+      messages:
+        attributes:
+          id: ID
+          content: Conteúdo
+          date: Data
+      devices:
+        attributes:
+          id: ID
+          platform: Plataforma
+    admin:
+      navbar:
+        devices: Aparelhos
+        messages: Mensagens
+        new_message: Nova Mensagem
+      filter:
+        value: Valor
+        button: Filtrar
+      buttons:
+        details: Detalhes
+        send: Enviar
+        send_all: Todos
+        remove_all: Nenhum
+      message_devices:
+        attributes:
+          device: Aparelho
+          status: Status
+          metadata: Metadados
+          firebase_id: Id da mensagem
+        status:
+          success: "Enviada com sucesso"
+          error: "Falha ao enviar"
+          undefined: "Indefinido"
+      messages:
+        failures: "Falhas: %{value}"
+        success: "Sucessos: %{value}"
+        show:
+          broadcast:
+            platform: Plataforma
+            status: Status
+            message: Mensagem
+        new:
+          toast:
+            success: Mensagem criada com sucesso
+            error: Falha no envio da mensagem
+          confirmation: Tem certeza que deseja enviar essa mensagem?
+          title: Nova Mensagem
+          new_attribute: Novo Atributo
+          specific: Específico
+          broadcast: Broadcast

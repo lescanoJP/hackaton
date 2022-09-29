@@ -1,0 +1,17 @@
+# Arquivo para adicionar todas as respostas de serviços
+
+pt-BR:
+  services:
+    session_service:
+      errors:
+        invalid_params: Email ou senha invalidos
+        user_not_found: Usuário não encontrado
+    facebook_auth_service:
+      errors:
+        invalid_token: Não foi possível autenticar com sua conta do facebook.
+    google_auth_service:
+      errors:
+        invalid_token: Não foi possível autenticar com sua conta do google.
+    apple_auth_service:
+      errors:
+        invalid_token: Não foi possível autenticar com sua conta da apple.

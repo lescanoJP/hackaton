@@ -1,0 +1,153 @@
+@media (min-width: 320px) {
+  .edit-password {
+    .container {
+      h1 {
+        font-size: 24px;
+        margin: 84px 16px 0 0;
+        font-family: "MontserratSemiBold";
+      }
+
+      p {
+        margin: 8px 16px 0 44px;
+        margin-top: 8px;
+        color: #A3AEB2;
+        margin-left: 16px;
+        margin-bottom: 44px;
+        font-family: "MontserratMedium";
+      }
+
+      .form-container {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 80px 80px 80px;
+        justify-items: center;
+        position: relative;
+
+        .field {
+          position: relative;
+          line-height: 14px;
+          margin: 0 10px;
+          display: inline-block;
+          width: 90%;
+
+          input {
+            position: relative;
+            border: #A3AEB2 solid 1px;
+            border-radius: 8px;
+            padding-left: 16px;
+            padding-right: 16px;
+            width: 90%;
+            height: 52px;
+            color: #222222;
+            font-size: 16px;
+            font-family: "MontserratRegular";
+
+            &:invalid + label {
+              transform: translateY(0);
+            }
+
+            &:focus {
+              & + label {
+                transform: translateY(-24px);
+              }
+            }
+          }
+
+          label {
+            color: #bbb;
+            font-size: 16px;
+            position: absolute;
+            z-index: 2;
+            left: 20px;
+            top: 18px;
+            padding: 0 2px;
+            pointer-events: none;
+            background: white;
+            transition: transform 300ms ease;
+            transform: translateY(-24px);
+            font-family: "MontserratRegular";
+          }
+
+          .submit-button {
+            font-family: "MontserratSemiBold";
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            background-color: #FF7562;
+            border: #FF7562 solid 1px;
+            border-radius: 8px;
+            width: 100%;
+            height: 47px;
+            margin-top: 24px;
+          }
+
+          .invalid-password-alert-container {
+            position: relative;
+
+            .invalid-password-message {
+              color: #FF7562;
+              margin: 0;
+              background-color: transparent;
+              position: absolute;
+              left: 16px;
+              top: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .edit-password {
+    display: grid;
+    justify-items: center;
+    .navbar {
+      width: 100%;
+      height: 50px;
+      border-bottom: 1px solid #A3AEB2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 154px;
+        height: 22px;
+      }
+    }
+    .container {
+      width: 360px;
+      display: grid;
+
+      h1 {
+        margin-left: 0;
+      }
+
+      p {
+        margin-left: 0;
+      }
+
+      .form-container {
+        .field {
+          width: 100%;
+
+          input {
+            &:invalid + label {
+              transform: translateY(2px);
+            }
+
+            &:focus {
+              & + label {
+                transform: translateY(-24px);
+              }
+            }
+          }
+
+          .submit-button {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
